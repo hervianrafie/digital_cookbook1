@@ -1,15 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import psycopg2
 import psycopg2.extras
+import os
 
 app = Flask(__name__)
 app.secret_key = 'rahasia-super-aman'
 
-# Fungsi koneksi ke database PostgreSQL
-import os
-
-import os
-
+# ---------------------- FUNGSI KONEKSI DATABASE ----------------------
 def get_db_connection():
     return psycopg2.connect(
         host=os.getenv('DB_HOST'),
@@ -18,8 +15,6 @@ def get_db_connection():
         password=os.getenv('DB_PASSWORD'),
         port=int(os.getenv('DB_PORT', 5432))
     )
-
-
 
 # ---------------------- ROUTE: HALAMAN UTAMA (BERANDA) ----------------------
 @app.route('/index')
@@ -61,19 +56,22 @@ def login():
         email = request.form['email']
         password = request.form['password']
 
-        conn = get_db_connection()
-        cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
-        cur.execute("SELECT * FROM users WHERE email = %s AND password = %s", (email, password))
-        user = cur.fetchone()
-        cur.close()
-        conn.close()
+        try:
+            conn = get_db_connection()
+            cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+            cur.execute("SELECT * FROM users WHERE email = %s AND password = %s", (email, password))
+            user = cur.fetchone()
+            cur.close()
+            conn.close()
 
-        if user:
-            session['user_id'] = user['id']
-            session['name'] = user['name']
-            return redirect(url_for('index'))
-        else:
-            return "Login gagal! Email atau password salah."
+            if user:
+                session['user_id'] = user['id']
+                session['name'] = user['name']
+                return redirect(url_for('index'))
+            else:
+                return "Login gagal! Email atau password salah."
+        except Exception as e:
+            return f"Terjadi kesalahan saat login: {e}"
 
     return render_template('login.html')
 
@@ -83,9 +81,21 @@ def logout():
     session.clear()
     return redirect(url_for('login'))
 
-# Jalankan server di port 8080 agar cocok dengan Docker
-import os
+# ---------------------- ROUTE TEST DATABASE (OPSIONAL) ----------------------
+@app.route('/test-db')
+def test_db():
+    try:
+        conn = get_db_connection()
+        cur = conn.cursor()
+        cur.execute("SELECT NOW()")
+        waktu = cur.fetchone()
+        cur.close()
+        conn.close()
+        return f"✅ Koneksi berhasil! Waktu sekarang: {waktu[0]}"
+    except Exception as e:
+        return f"❌ Gagal konek DB: {e}"
 
+# ---------------------- JALANKAN APLIKASI ----------------------
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 8080))
     app.run(debug=False, host='0.0.0.0', port=port)
