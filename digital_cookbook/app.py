@@ -17,7 +17,6 @@ def get_db_connection():
         port=int(os.getenv('DB_PORT', 5432))
     )
 
-    )
 
 # ---------------------- ROUTE: HALAMAN UTAMA (BERANDA) ----------------------
 @app.route('/index')
