@@ -6,13 +6,17 @@ app = Flask(__name__)
 app.secret_key = 'rahasia-super-aman'
 
 # Fungsi koneksi ke database PostgreSQL
+import os
+
 def get_db_connection():
     return psycopg2.connect(
-        host='db',
-        dbname='db_resep',
-        user='postgres',
-        password='password',
-        port=5432
+        host=os.getenv('DB_HOST'),
+        dbname=os.getenv('DB_NAME'),
+        user=os.getenv('DB_USER'),
+        password=os.getenv('DB_PASSWORD'),
+        port=int(os.getenv('DB_PORT', 5432))
+    )
+
     )
 
 # ---------------------- ROUTE: HALAMAN UTAMA (BERANDA) ----------------------
