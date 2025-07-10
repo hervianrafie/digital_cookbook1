@@ -8,6 +8,8 @@ app.secret_key = 'rahasia-super-aman'
 # Fungsi koneksi ke database PostgreSQL
 import os
 
+import os
+
 def get_db_connection():
     return psycopg2.connect(
         host=os.getenv('DB_HOST'),
@@ -16,6 +18,7 @@ def get_db_connection():
         password=os.getenv('DB_PASSWORD'),
         port=int(os.getenv('DB_PORT', 5432))
     )
+
 
 
 # ---------------------- ROUTE: HALAMAN UTAMA (BERANDA) ----------------------
