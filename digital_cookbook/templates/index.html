@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Cookbook - FlipHTML5</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header>
+        <h1>DIY & Publikasikan Buku Masak Anda Sendiri Secara Online</h1>
+        <p>Ingin membuat buku masak sendiri, atau mencari tempat untuk menyimpan resep nenek dan kenangan Anda? Either way, FlipHTML5 dapat membantu.</p>
+    </header>
+
+    <section class="features">
+        <div class="feature">
+            <h2>Wujudkan Ide Anda!</h2>
+            <p><strong>Generator buku resep AI</strong> untuk mengubah ide Anda menjadi buku masak yang terstruktur dengan baik.</p>
+        </div>
+
+        <div class="feature">
+            <h2>Platform Penerbitan Buku Masak ONE-STOP</h2>
+            <ul>
+                <li>Membuat</li>
+                <li>Publikasikan & Bagikan</li>
+                <li>Menjual</li>
+            </ul>
+        </div>
+
+        <div class="feature">
+            <h2>Kami Membawa Anda Lebih Banyak</h2>
+            <ul>
+                <li>Pribadi & Aman</li>
+                <li>Cari Resep</li>
+                <li>URL Diaktifkan secara otomatis</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>Berkembang Dengan Fitur Baru FlipHTML5</h2>
+        <p>Membawa konten Anda ke tingkat berikutnya</p>
+        <a href="#" class="btn">Mulai Sekarang</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Digital Cookbook. Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <section id="meal-planner" style="padding: 40px; background-color: #f8f8f8;">
+        <div style="max-width: 800px; margin: auto;">
+          <h2 style="text-align: center; color: #333;">🗓️ Meal Planner</h2>
+          <p style="text-align: center;">Rencanakan menu makanan kamu selama seminggu. Pilih resep yang kamu ingin masak tiap harinya!</p>
+      
+          <form id="planner-form">
+            <table style="width: 100%; border-collapse: collapse;">
+              <thead>
+                <tr>
+                  <th style="padding: 10px; border-bottom: 1px solid #ccc;">Hari</th>
+                  <th style="padding: 10px; border-bottom: 1px solid #ccc;">Resep</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Senin</td>
+                  <td><input type="text" name="monday" placeholder="Contoh: Nasi Goreng" style="width: 100%; padding: 8px;"></td>
+                </tr>
+                <tr>
+                  <td>Selasa</td>
+                  <td><input type="text" name="tuesday" placeholder="Contoh: Ayam Bakar" style="width: 100%; padding: 8px;"></td>
+                </tr>
+                <tr>
+                  <td>Rabu</td>
+                  <td><input type="text" name="wednesday" placeholder="Contoh: Soto Ayam" style="width: 100%; padding: 8px;"></td>
+                </tr>
+                <tr>
+                  <td>Kamis</td>
+                  <td><input type="text" name="thursday" placeholder="Contoh: Spaghetti" style="width: 100%; padding: 8px;"></td>
+                </tr>
+                <tr>
+                  <td>Jumat</td>
+                  <td><input type="text" name="friday" placeholder="Contoh: Sayur Asem" style="width: 100%; padding: 8px;"></td>
+                </tr>
+                <tr>
+                  <td>Sabtu</td>
+                  <td><input type="text" name="saturday" placeholder="Contoh: Bakso" style="width: 100%; padding: 8px;"></td>
+                </tr>
+                <tr>
+                  <td>Minggu</td>
+                  <td><input type="text" name="sunday" placeholder="Contoh: Mie Goreng" style="width: 100%; padding: 8px;"></td>
+                </tr>
+              </tbody>
+            </table>
+            <br>
+            <button type="submit" style="padding: 10px 20px; background-color: #ff6f00; color: white; border: none; cursor: pointer;">💾 Simpan Rencana</button>
+          </form>
+        </div>
+      </section>
+      
+</body>
+</html>

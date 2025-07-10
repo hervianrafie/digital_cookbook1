@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Signup</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f2f2f2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            width: 800px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .form-container, .info-container {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .form-container {
+            background: #fff;
+        }
+
+        .form-container h2 {
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .form-container .social-icons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .social-icons a {
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .form-container p {
+            font-size: 0.9em;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            background: #eee;
+            border-radius: 5px;
+        }
+
+        .form-container a {
+            font-size: 0.85em;
+            color: #ffbb00;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .form-container button {
+            padding: 10px 20px;
+            border: none;
+            background: #ff8800;
+            color: white;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .info-container {
+            background: #ff9900;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .info-container h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .info-container p {
+            font-size: 0.95em;
+            margin-bottom: 20px;
+        }
+
+        .info-container button {
+            padding: 10px 25px;
+            border: 2px solid white;
+            background: transparent;
+            color: white;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="form-container">
+        <h2>Sign in</h2>
+        <div class="social-icons">
+            <a href="#">f</a>
+            <a href="#">G+</a>
+            <a href="#">in</a>
+        </div>
+        <p>atau gunakan akun anda</p>
+        <!-- ✅ Diperbaiki agar mengarah ke /login -->
+        <form action="/login" method="POST">
+            <input type="email" placeholder="Email" name="email" required>
+            <input type="password" placeholder="Password" name="password" required>
+            <a href="#">Lupa kata sandi anda?</a>
+            <br>
+            <button type="submit">SIGN IN</button>
+        </form>
+    </div>
+    <div class="info-container">
+        <h2>Halo, Teman!</h2>
+        <p>Daftarkan diri anda dan mulai gunakan layanan kami segera</p>
+        <button onclick="window.location.href='/'">SIGN UP</button>
+    </div>
+</div>
+
+</body>
+</html>
